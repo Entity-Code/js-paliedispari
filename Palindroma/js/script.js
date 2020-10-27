@@ -15,10 +15,6 @@ invia.addEventListener("click",
    }
 );
 
-
-
-
-
 // DICHIARAZIONE FUNZIONI
 
 // transformazione stringa reverse

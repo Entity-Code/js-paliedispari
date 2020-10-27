@@ -1,0 +1,13 @@
+/* PARI E DISPARI */
+/* regole generali */
+*{
+   margin:0;
+   padding:0;
+   box-sizing: border-box;
+   color: white;
+}
+
+body{
+   background-color: black;
+   padding: 100px 300px;
+}

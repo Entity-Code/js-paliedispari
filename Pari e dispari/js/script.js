@@ -50,13 +50,13 @@ invia.addEventListener("click",
 
 
       // somma numero user e numero pc
-      var somma = numUser + numPc;
+      var somma = parseInt(numUser) + parseInt(numPc);
       setTimeout(function () {
          document.getElementById("somma").innerHTML = "La somma è... ";
       }, 5000);
 
       setTimeout(function () {
-         document.getElementById("somma").innerHTML = numPc;
+         document.getElementById("somma").innerHTML = somma;
       }, 6500);
 
       setTimeout(function () {
@@ -76,6 +76,7 @@ function randomNum(max) {
    }
 }
 
+// pari o dispari validator
 function pOdValidator(num) {
    if (num % 2 === 0) {
       return " è un numero pari, quindi hanno vinto i pari!";

@@ -1,39 +1,70 @@
 //PARI E DISPARI
 
-// richiesta pari o dispari
-var pOd = prompt("Pari o Dispari? quale fazione sceglierai? :)");
-var pOdStatus = true;
-//controllo pOd
-if (pOd === "pari" || pOd === "Pari" || pOd === "dispari" || pOd === "Dispari") {
-   pOdStatus = true;
-} else {
-   alert("Non ho mai sentito il nome di questa fazione :( , scegli tra Pari o Dispari, grazie !");
-   location.reload();
-   pOdStatus = false;
-}
+var invia = document.getElementById("invia");
+invia.addEventListener("click",
+	function() {
+      // richiesta pari o dispari
+      var pOd = document.getElementById("input").value;
+      var pOdStatus = true;
+      //controllo pOd
+      if (pOd === "pari" || pOd === "Pari" || pOd === "dispari" || pOd === "Dispari") {
+         pOdStatus = true;
+         document.getElementById("pOdUser").innerHTML = "La tua fazione: " + pOd;
+      } else {
+         pOdStatus = false;
+         alert("Non ho mai sentito il nome di questa fazione :( , scegli tra Pari o Dispari, grazie !");
+         location.reload();
+         }
+
+      // richiesta numero user
+      var numUser = document.getElementById("input2").value;
+      // controllo numUser compreso tra 1 e 5
+      if (numUser < 1 || numUser > 5 || isNaN(numUser) == true) {
+         alert("Inserisci un numero compreso tra 1 e 5, grazie");
+         location.reload();
+      } else {
+         setTimeout(function () {
+            document.getElementById("myNum").innerHTML = "Il tuo numero: " + numUser;
+         }, 1000);
+
+      }
+
+      // calcolo valore status fazione pc
+      var pOdPc;
+      if (pOd === "pari" || pOd === "Pari") {
+         pOdPc = "Dispari";
+      } else if (pOd === "dispari" || pOd === "Dispari"){
+         pOdPc = "Pari";
+      }
+
+      setTimeout(function () {
+         document.getElementById("pOdPc").innerHTML = "Fazione PC: " + pOdPc;
+      }, 2000);
 
 
-// richiesta numero user
-var numUser = parseInt(prompt("Scegli un numero da 1 a 5"));
-// controllo numUser compreso tra 1 e 5
-if (numUser < 1 || numUser > 5 || isNaN(numUser) == true) {
-   alert("Inserisci un numero compreso tra 1 e 5, grazie");
-   location.reload();
-} else {
-   console.log("Tu: " + numUser);
-}
-
-// numero pc
-var numPc = parseInt(randomNum(5));
-console.log("Pc: " + numPc);
-
-// somma numero user e numero pc
-var somma = numUser + numPc;
-console.log("somma: " + somma);
-
-console.log(pOdValidator(somma));
+      // numero pc
+      var numPc = parseInt(randomNum(5));
+      setTimeout(function () {
+         document.getElementById("pcNum").innerHTML = ("Numero PC: " + numPc);
+      }, 3000);
 
 
+      // somma numero user e numero pc
+      var somma = numUser + numPc;
+      setTimeout(function () {
+         document.getElementById("somma").innerHTML = "La somma è... ";
+      }, 5000);
+
+      setTimeout(function () {
+         document.getElementById("somma").innerHTML = numPc;
+      }, 6500);
+
+      setTimeout(function () {
+         // controllo se somma pari o dispari
+         document.getElementById("risultato").innerHTML = pOdValidator(somma);
+      }, 7500);
+   }
+);
 
 
 // transformazione stringa reverse
@@ -47,8 +78,8 @@ function randomNum(max) {
 
 function pOdValidator(num) {
    if (num % 2 === 0) {
-      return "Ha vinto la fazione pari!";
+      return " è un numero pari, quindi hanno vinto i pari!";
    } else {
-      return "Ha vinto la fazione dispari!";
+      return " è un numero dispari, quindi hanno vinto i dispari!";
    }
  }

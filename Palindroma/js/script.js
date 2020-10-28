@@ -10,7 +10,7 @@ invia.addEventListener("click",
       if (parola == "") {
          document.getElementById("risultato").innerHTML = "Inserisci prima una parola, grazie";
       } else {
-         validationPalindrome(parola);
+         document.getElementById("risultato").innerHTML = validationPalindrome(parola);
       }
    }
 );
@@ -27,10 +27,10 @@ function reverseString(string) {
 function validationPalindrome(string) {
 
    if (string === reverseString(string)) {
-      return document.getElementById("risultato").innerHTML = "Questa parola è palindroma";
+      return "Questa parola è palindroma";
    } else if (string !== reverseString(string)){
-      return document.getElementById("risultato").innerHTML = "Questa parola non è palindroma";
+      return "Questa parola non è palindroma";
    } else if (string == ""){
-      return document.getElementById("risultato").innerHTML = "Inserisci prima una parola, grazie";
+      return "Inserisci prima una parola, grazie";
    }
 }

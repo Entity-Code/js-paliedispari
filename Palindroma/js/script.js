@@ -18,13 +18,9 @@ invia.addEventListener("click",
 // DICHIARAZIONE FUNZIONI
 
 // transformazione stringa reverse
-function reverseString(name) {
-  if (name === "") {
-     return "";
-   }
-  else {
-     return reverseString(name.substr(1)) + name.charAt(0);
-   }
+// transforma in stringa, la inverte, la ritrasforma in stringa
+function reverseString(string) {
+  return string.split("").reverse().join(""); //
 }
 
 //creo funzione per dire in output se la parola inserita è palindroma o no
